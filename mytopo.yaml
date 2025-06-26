@@ -11,11 +11,11 @@ devices:
         interface: ens4
         ip: 192.168.11.21/24
         gateway: 192.168.11.1
-    dhcp_assigned:
-      - 192.168.117.11
-      - 192.168.117.12
-      - 192.168.105.2
-      - 192.168.108.2
+      dhcp_assigned:
+        - 192.168.117.11
+        - 192.168.117.12
+        - 192.168.105.11
+        - 192.168.108.11
 
   IOU1:
     os: ios
@@ -89,17 +89,12 @@ devices:
         class: telnet_connector2.TelnetConnector2
         protocol: telnet
         ip: '192.168.0.100'
-        port: 5009
+        port: 5025
       ssh:
         class: ssh_connector_paramiko.SSHConnectorParamiko
         protocol: ssh
         ip: 192.168.101.2
         port: 22
-      rest:
-        class: rest_connector.RESTConnector
-        protocol: rest
-        ip: 192.168.100.2
-        port: 443
 
   IOSv:
     os: ios
@@ -143,7 +138,7 @@ devices:
         class: telnet_connector2.TelnetConnector2
         protocol: telnet
         ip: 192.168.0.100
-        port: 5018
+        port: 5008
         credentials:
           login:
             username: admin
@@ -180,7 +175,7 @@ devices:
           excluded: [ 192.168.117.0, 192.168.117.10 ]
     connections:
       telnet:
-        port: 5006
+        port: 5010
 
   # dev with min config + enable password
   IOSv2:
@@ -188,7 +183,7 @@ devices:
     type: router
     connections:
       telnet:
-        port: 5008
+        port: 5011
     credentials:
       enable:
         password: iosvpa55
@@ -201,7 +196,7 @@ devices:
       hostname: iosV3_router
     connections:
       telnet:
-        port: 5010
+        port: 5013
 
   # device with MINIMAL CONFIGURATIONS
   IOSv4:
@@ -209,7 +204,7 @@ devices:
     type: router
     connections:
       telnet:
-        port: 5017
+        port: 5022
 
 topology:
   IOU1:
@@ -309,30 +304,24 @@ topology:
         alias: mgmt
         link: ftd_mgmt
         ipv4: 192.168.103.2/24
-#      Management0/0:
-#        type: ethernet
-#        alias: diagnostic
-#        link: ftd_mgmt
-#        ipv4: 192.168.111.2/24
-
       GigabitEthernet0/0:
         type: ethernet
-        alias: to_csr
+        alias: outside
         link: link-ftd3
         ipv4: 192.168.106.2/24
       GigabitEthernet0/1:
         type: ethernet
-        alias: to_iosv15
+        alias: iosv
         link: link-ftd2
         ipv4: 192.168.107.2/24
       GigabitEthernet0/2:
         type: ethernet
-        alias: to_dockerguest2
+        alias: inside
         link: link-docker2
         ipv4: 192.168.109.1/24
       GigabitEthernet0/3:
         type: ethernet
-        alias: to_iou2
+        alias: iou2
         link: link-ftd4
         ipv4: 192.168.121.2/24
 
