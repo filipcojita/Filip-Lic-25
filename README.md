@@ -36,7 +36,7 @@ Framework-ul PyATS este folosit pentru definirea topologiei și orchestrarea pa�
 ├── configure_fdm_via_rest.py    # Configurare completă FTD prin Swagger
 ├── mocktests.py                 # Teste unitare pentru componentele principale
 ├── mytopo.yaml                  # Fișier de definire a topologiei rețelei
-├── proiect_licenta_gns3         # Proiect portabil GNS3
+├── link_proiect_licenta_gns3    # Link download proiect portabil GNS3
 ```
 
 ## Cerințe preliminare:
